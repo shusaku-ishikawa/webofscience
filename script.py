@@ -21,7 +21,7 @@ def init_selenium(download_dir):
     chop.add_argument('--disable-gpu')
     chop.add_argument('--window-size=1280,1024')
     chop.add_argument('log-level=3')
-    driver = webdriver.Chrome(chrome_options = chop)
+    driver = webdriver.Chrome(options = chop)
     driver.command_executor._commands["send_command"] = ("POST", '/session/$sessionId/chromium/send_command')
     driver.execute("send_command", {
         'cmd': 'Page.setDownloadBehavior',
